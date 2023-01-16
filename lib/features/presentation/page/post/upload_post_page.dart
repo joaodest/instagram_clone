@@ -7,7 +7,20 @@ class UploadPostPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("UploadPost", style: TextStyle(color: primaryColor),),),
+      backgroundColor: backGroundColor,
+      body: Center(
+        child: Container(
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+            color: secondaryColor.withOpacity(.3),
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+            child: Icon(Icons.upload, color: primaryColor, size: 40,),
+          ),
+        ),
+      )
     );
   }
 }

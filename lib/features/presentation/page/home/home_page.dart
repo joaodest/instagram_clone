@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Text("Username", style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),),
-                sizeHor(10),
+                sizeHor(8),
                 Text("some description", style: TextStyle(color: primaryColor,),),
               ],
             ),
