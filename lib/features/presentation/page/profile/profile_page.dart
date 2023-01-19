@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/consts.dart';
+import 'package:instagram_clone/features/presentation/page/profile/edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -17,9 +18,14 @@ class ProfilePage extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 10),
-            child: Icon(
-              Icons.menu,
-              color: primaryColor,
+            child: InkWell(
+              onTap: () {
+                _openBottomModalSheet(context);
+              },
+              child: Icon(
+                Icons.menu,
+                color: primaryColor,
+              ),
             ),
           )
         ],
@@ -96,7 +102,8 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
               sizeVer(10),
-              Text("Name", style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),),
+              Text("Name", style: TextStyle(
+                  color: primaryColor, fontWeight: FontWeight.bold),),
               sizeVer(10),
               Text("User bio", style: TextStyle(color: primaryColor),),
               sizeVer(10),
@@ -109,16 +116,73 @@ class ProfilePage extends StatelessWidget {
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,
                 ),
-                itemBuilder: (context, index) => Container(
-                  width: 100,
-                  height: 100,
-                  color: secondaryColor,
-                ),
+                itemBuilder: (context, index) =>
+                    Container(
+                      width: 100,
+                      height: 100,
+                      color: secondaryColor,
+                    ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  _openBottomModalSheet(BuildContext context) {
+    return showModalBottomSheet(context: context, builder: (context) {
+      return Container(
+        margin: EdgeInsets.only(left: 4, right: 4, bottom: 4),
+        decoration: BoxDecoration(color: backGroundColor.withOpacity(.8)),
+        child: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(padding: EdgeInsets.only(left: 10),
+                  child: Text(
+                    "More Options",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: primaryColor
+                    ),
+                  ),
+                ),
+                sizeVer(12),
+                Padding(padding: EdgeInsets.only(left: 10),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, PageConst.editProfilePage);
+                    },
+                    child: Text(
+                      "Edit Profile",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                          color: primaryColor
+                      ),
+                    ),
+                  ),
+                ),
+                sizeVer(12),
+                Padding(padding: EdgeInsets.only(left: 10),
+                  child: Text(
+                    "Logout",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 16,
+                        color: primaryColor
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    });
   }
 }

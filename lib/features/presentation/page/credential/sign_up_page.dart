@@ -90,13 +90,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SignInPage(),
-                      ),
-                      (route) => false,
-                    );
+                    Navigator.pushNamedAndRemoveUntil(context, PageConst.signInPage, (route) => false);
                   },
                   child: Text(
                     "Sign In.",

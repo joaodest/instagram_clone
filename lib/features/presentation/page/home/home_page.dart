@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/consts.dart';
+import 'package:instagram_clone/features/presentation/page/post/comment/comment_page.dart';
+import 'package:instagram_clone/features/presentation/page/post/update_post_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -49,7 +51,11 @@ class HomePage extends StatelessWidget {
                     Text("Username", style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),),
                   ],
                 ),
-                Icon(Icons.more_vert, color: primaryColor,)
+                GestureDetector(
+                onTap: () {
+                  _openBottomModalSheet(context);
+                },
+                child: Icon(Icons.more_vert, color: primaryColor,))
               ],
             ),
             sizeVer(10),
@@ -68,6 +74,9 @@ class HomePage extends StatelessWidget {
                     sizeHor(10),
                     GestureDetector(
                       child: Image.asset("images/bubble-chat.png", color: primaryColor, width: 25,),
+                      onTap: (){
+                        Navigator.pushNamed(context, PageConst.commentPage);
+                      }
                     ),
                     sizeHor(10),
                     GestureDetector(
@@ -79,6 +88,8 @@ class HomePage extends StatelessWidget {
                 Icon(Icons.bookmark_outline, color: primaryColor,)
               ],
             ),
+            sizeVer(10),
+            Text("34 likes", style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),),
             sizeVer(10),
             Row(
               children: [
@@ -95,5 +106,61 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+  _openBottomModalSheet(BuildContext context) {
+    return showModalBottomSheet(context: context, builder: (context) {
+      return Container(
+        margin: EdgeInsets.only(left: 4, right: 4, bottom: 4),
+        decoration: BoxDecoration(color: backGroundColor.withOpacity(.8)),
+        child: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Text(
+                    "More Options",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: primaryColor
+                    ),
+                  ),
+                ),
+                sizeVer(12),
+                Padding(padding: EdgeInsets.only(left: 10),
+                  child: Text(
+                    "Delete Post",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 16,
+                        color: primaryColor
+                    ),
+                  ),
+                ),
+                sizeVer(12),
+                Padding(padding: EdgeInsets.only(left: 10),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, PageConst.updatePostPage);
+                    },
+                    child: Text(
+                      "Update Post",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                          color: primaryColor
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    });
   }
 }
