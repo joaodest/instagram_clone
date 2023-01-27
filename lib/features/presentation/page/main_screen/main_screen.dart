@@ -9,7 +9,9 @@ import 'package:instagram_clone/features/presentation/page/search/search_page.da
 
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+
+  final String uid;
+  const MainScreen({Key? key, required this.uid}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();

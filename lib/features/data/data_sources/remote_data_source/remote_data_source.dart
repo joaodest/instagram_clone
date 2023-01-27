@@ -1,5 +1,4 @@
-
-import 'package:instagram_clone/features/domain/entitities/user/user_entity.dart';
+ import 'package:instagram_clone/features/domain/entitities/user/user_entity.dart';
 
 abstract class FirebaseRemoteDataSource{
   //Credenciais

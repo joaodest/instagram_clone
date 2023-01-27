@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/consts.dart';
+import 'package:instagram_clone/features/domain/usecases/firebase_usecases/user/get_current_uid_usecase.dart';
 import 'package:instagram_clone/features/presentation/page/post/comment/comment_page.dart';
 import 'package:instagram_clone/features/presentation/page/post/update_post_page.dart';
+import 'package:instagram_clone/injection_container.dart' as di;
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
+  void initState(){
+    di.sl<GetCurrentUidUsecase>().call().then((value) {
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +122,7 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
   _openBottomModalSheet(BuildContext context) {
     return showModalBottomSheet(context: context, builder: (context) {
       return Container(
@@ -163,4 +179,6 @@ class HomePage extends StatelessWidget {
       );
     });
   }
+
+
 }

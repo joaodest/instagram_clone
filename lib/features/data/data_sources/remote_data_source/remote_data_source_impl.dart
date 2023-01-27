@@ -94,8 +94,8 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
       await firebaseAuth
           .createUserWithEmailAndPassword(
               email: user.email!, password: user.password!)
-          .then((value) async {
-        if (value.user!.uid != null) {
+          .then((currentUser) async {
+        if (currentUser.user?.uid != null) {
           await createUser(user);
         }
       });

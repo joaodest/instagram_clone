@@ -5,9 +5,14 @@ import 'package:instagram_clone/features/presentation/page/credential/sign_up_pa
 import 'package:instagram_clone/features/presentation/widgets/button_container_widget.dart';
 import 'package:instagram_clone/features/presentation/widgets/form_container_widget.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
 
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +42,9 @@ class SignInPage extends StatelessWidget {
             ButtonContainerWidget(
               color: blueColor,
               text: "Sign In",
-              onTapListener: () {},
+              onTapListener: () {
+                _signInUser();
+              },
             ),
             Flexible(
               child: Container(),
@@ -69,5 +76,9 @@ class SignInPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _signInUser() {
+
   }
 }
