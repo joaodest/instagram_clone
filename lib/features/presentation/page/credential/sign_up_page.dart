@@ -134,6 +134,26 @@ class _SignUpPageState extends State<SignUpPage> {
               _signUpUser();
             },
           ),
+            sizeVer(10),
+          _isSigningUp == true
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Please wait",
+                      style: TextStyle(
+                          color: primaryColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    sizeHor(10),
+                    CircularProgressIndicator(),
+                  ],
+                )
+              : Container(
+                  width: 0,
+                  height: 0,
+                ),
           Flexible(
             child: Container(),
             flex: 2,
@@ -161,26 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
               )
             ],
           ),
-          sizeVer(10),
-          _isSigningUp == true
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Please wait",
-                      style: TextStyle(
-                          color: primaryColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    sizeHor(10),
-                    CircularProgressIndicator(),
-                  ],
-                )
-              : Container(
-                  width: 0,
-                  height: 0,
-                ),
+        
         ],
       ),
     );

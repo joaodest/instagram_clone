@@ -6,9 +6,12 @@ class ButtonContainerWidget extends StatelessWidget {
   final String? text;
   final VoidCallback? onTapListener;
 
-  const ButtonContainerWidget(
-      {Key? key, this.color, this.text, this.onTapListener})
-      : super(key: key);
+  const ButtonContainerWidget({
+    Key? key,
+    this.color,
+    this.text,
+    this.onTapListener,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +20,8 @@ class ButtonContainerWidget extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 40,
-        decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(3)),
+        decoration:
+            BoxDecoration(color: color, borderRadius: BorderRadius.circular(3)),
         child: Center(
           child: Text(
             "$text",

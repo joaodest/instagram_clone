@@ -44,8 +44,11 @@ Future<void> init() async {
       getUsersUsecase: sl.call(),
     ),
   );
+
   sl.registerFactory(
-        () => GetSingleUserCubit(getSingleUserUsecase: sl.call()),
+    () => GetSingleUserCubit(
+      getSingleUserUsecase: sl.call(),
+    ),
   );
 
   // Use Cases

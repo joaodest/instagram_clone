@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/consts.dart';
+import 'package:instagram_clone/features/domain/entitities/user/user_entity.dart';
 import 'package:instagram_clone/features/presentation/cubit/auth/auth_cubit.dart';
-import 'package:instagram_clone/features/presentation/page/profile/edit_profile_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  final UserEntity currentUser;
+  const ProfilePage({Key? key, required this.currentUser}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: backGroundColor,
         title: Text(
-          "Username",
+          "${currentUser.username}",
           style: TextStyle(color: primaryColor),
         ),
         actions: [
@@ -52,7 +53,7 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "0",
+                            "${currentUser.totalPosts}",
                             style: TextStyle(
                                 color: primaryColor,
                                 fontWeight: FontWeight.bold,
@@ -69,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "54",
+                            "${currentUser.totalFollowers}",
                             style: TextStyle(
                                 color: primaryColor,
                                 fontWeight: FontWeight.bold,
@@ -86,14 +87,14 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "122",
-                            style: TextStyle(
+                            "${currentUser.totalFollowing}",
+                            style: const TextStyle(
                                 color: primaryColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20),
                           ),
                           sizeVer(8),
-                          Text(
+                          const Text(
                             "Following",
                             style: TextStyle(color: primaryColor),
                           ),
@@ -104,16 +105,16 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
               sizeVer(10),
-              Text("Name", style: TextStyle(
+              Text("${currentUser.name == ""?  currentUser.username : currentUser.name}", style: const TextStyle(
                   color: primaryColor, fontWeight: FontWeight.bold),),
               sizeVer(10),
-              Text("User bio", style: TextStyle(color: primaryColor),),
+              Text("${currentUser.bio}", style: const TextStyle(color: primaryColor),),
               sizeVer(10),
               GridView.builder(
                 itemCount: 32,
-                physics: ScrollPhysics(),
+                physics: const ScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,
