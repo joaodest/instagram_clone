@@ -56,7 +56,7 @@ class UserModel extends UserEntity {
       uid: snapshot['uid'],
       website: snapshot['website'],
       profileUrl: snapshot['profileUrl'],
-      followers: List.from(snap.get("followes")),
+      followers: List.from(snap.get("followers")),
       following: List.from(snap.get("following")),
     );
   }

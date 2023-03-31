@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:instagram_clone/consts.dart';
@@ -132,5 +134,11 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
 
     userCollection.doc(user.uid).update(userInformation);
 
+  }
+
+  @override
+  Future<String> uploadImageToStorage(File? file, bool isPost, String childName) {
+    // TODO: implement uploadImageToStorage
+    throw UnimplementedError();
   }
 }

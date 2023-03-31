@@ -9,7 +9,6 @@ import 'package:instagram_clone/features/presentation/page/main_screen/main_scre
 import 'package:instagram_clone/on_generate_route.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:instagram_clone/injection_container.dart' as di;
-
 import 'features/presentation/cubit/auth/auth_cubit.dart';
 import 'features/presentation/page/credential/sign_in_page.dart';
 

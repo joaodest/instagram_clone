@@ -105,7 +105,7 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
               sizeVer(10),
-              Text("${currentUser.name == ""?  currentUser.username : currentUser.name}", style: const TextStyle(
+              Text("${currentUser.name == "" ?  currentUser.username : currentUser.name}", style: const TextStyle(
                   color: primaryColor, fontWeight: FontWeight.bold),),
               sizeVer(10),
               Text("${currentUser.bio}", style: const TextStyle(color: primaryColor),),
